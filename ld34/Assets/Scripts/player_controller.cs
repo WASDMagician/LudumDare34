@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class player_controller : MonoBehaviour {
 
     public float jumpHeight;
     public float moveSpeed;
+
+    
+   
+    
 
     // Use this for initialization
     void Start () 
