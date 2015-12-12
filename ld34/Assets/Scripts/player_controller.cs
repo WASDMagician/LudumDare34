@@ -3,41 +3,42 @@ using System.Collections;
 
 public class player_controller : MonoBehaviour {
 
-    public float jumpHeight;
-    public float moveSpeed;
-    private bool isGrounded = true;
+	public float jumpHeight;
+	public float moveSpeed;
+	private bool isGrounded = true;
 
-    
+	
 
-    // Use this for initialization
-    void Start () 
+	// Use this for initialization
+	void Start () 
 	{
 	
 	}
 
   
 
-    // Update is called once per frame
-    void Update () 
+	// Update is called once per frame
+	void Update () 
 	{
-        
+		if(Input.GetKeyDown(KeyCode.W))
+		{
+			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+			isGrounded = false;
+		}
 
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
-            isGrounded = false;
-        }
+		Vector3 player_position = transform.position;
+		player_position.x += (Input.GetAxis("Horizontal") * Time.deltaTime) * moveSpeed;
+		transform.position = player_position;
+	}
 
-        if(Input.GetKey(KeyCode.D))
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
+	public void set_grounded(bool grounded)
+	{
+		isGrounded = grounded;
+	}
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
-
-    }
+	public bool get_grounded()
+	{
+		return isGrounded;
+	}
 
 }

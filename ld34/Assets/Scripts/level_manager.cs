@@ -29,7 +29,7 @@ public class level_manager : MonoBehaviour {
 		Vector3 new_platform_position = new_platform.transform.position;
 		if (Random.Range(1, 3) == 2)
 		{
-			new_platform_position.x = Random.Range(min_x, deadzone_min_x) - new_platform.GetComponent<Renderer>().bounds.size.x;
+			new_platform_position.x = Random.Range(min_x, deadzone_min_x);
 		}
 		else
 		{
