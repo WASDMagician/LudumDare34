@@ -6,12 +6,13 @@ public class all_plant_controller : MonoBehaviour {
 	public GameObject plant_section;
 	private int number_of_sections = 0;
 
+
 	void Update()
 	{
-		if(Input.GetKeyUp(KeyCode.Space))
-		{
-			add_section();
-		}
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            add_section();
+        }
 	}
 
 	public void add_section()
