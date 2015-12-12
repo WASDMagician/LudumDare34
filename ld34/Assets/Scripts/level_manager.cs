@@ -4,7 +4,8 @@ using System.Collections;
 public class level_manager : MonoBehaviour {
 
 	public GameObject platform_part;
-	int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
+    int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
+    public static int water_level;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class level_manager : MonoBehaviour {
 		deadzone_max_x = 1;
 		platform_y_distance = 2;
 		last_y_position = -2;
+        water_level = 0;
 
 		for(int i = 0; i < 50; i++)
 		{
