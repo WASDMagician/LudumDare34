@@ -5,9 +5,8 @@ public class player_controller : MonoBehaviour {
 
     public float jumpHeight;
     public float moveSpeed;
+    private bool isGrounded = true;
 
-    
-   
     
 
     // Use this for initialization
@@ -21,10 +20,12 @@ public class player_controller : MonoBehaviour {
     // Update is called once per frame
     void Update () 
 	{
+        
 
         if(Input.GetKeyDown(KeyCode.W))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+            isGrounded = false;
         }
 
         if(Input.GetKey(KeyCode.D))
