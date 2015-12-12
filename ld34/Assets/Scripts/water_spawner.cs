@@ -9,7 +9,12 @@ public class water_spawner : MonoBehaviour {
 	void Start () {
         if (Random.Range(1, 3) == 2)
         {
-            Instantiate(water_bottle);
+            print("Spawn");
+            GameObject new_water_bottle = Instantiate(water_bottle);
+            Vector2 water_bottle_position = this.transform.position;
+            water_bottle_position.y += new_water_bottle.GetComponent<Renderer>().bounds.extents.y;
+            new_water_bottle.transform.position = water_bottle_position;
+
         }
 	}
 }
