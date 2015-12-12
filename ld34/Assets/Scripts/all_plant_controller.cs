@@ -21,7 +21,7 @@ public class all_plant_controller : MonoBehaviour {
 
         if(water.get_water_leves() == 5)
         {
-            add_section();
+          
         }
 	}
 
