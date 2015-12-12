@@ -4,12 +4,22 @@ using System.Collections;
 public class all_plant_controller : MonoBehaviour {
 
 	public GameObject plant_section;
+    private level_manager water;
 	private int number_of_sections = 0;
 
+    void Start()
+    {
+        water = GameObject.FindGameObjectWithTag("level_manager").GetComponent<level_manager>();
+    }
 
 	void Update()
 	{
         if (Input.GetKeyUp(KeyCode.Space))
+        {
+            add_section();
+        }
+
+        if(water.get_water_leves() == 5)
         {
             add_section();
         }
