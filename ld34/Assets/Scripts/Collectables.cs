@@ -13,11 +13,13 @@ public class Collectables : MonoBehaviour {
         if (col.gameObject.name == "Player")
         {
             Destroy(this.gameObject);
+            level_manager.water_level += 5;
+            Debug.Log(level_manager.water_level);
         }
     }
 
     // Update is called once per frame
     void Update () {
-      
+        
     }
 }
