@@ -3,9 +3,11 @@ using System.Collections;
 
 public class Collectables : MonoBehaviour {
 
+    level_manager manager;
+
 	// Use this for initialization
 	void Start () {
-	
+        manager = GameObject.FindGameObjectWithTag("level_manager").GetComponent<level_manager>();
 	}
 
     void OnTriggerEnter2D(Collider2D col)
@@ -13,8 +15,7 @@ public class Collectables : MonoBehaviour {
         if (col.gameObject.name == "Player")
         {
             Destroy(this.gameObject);
-            level_manager.water_level += 5;
-            Debug.Log(level_manager.water_level);
+            manager.update_water_display(5);
         }
     }
 

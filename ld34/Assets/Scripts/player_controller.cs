@@ -43,7 +43,6 @@ public class player_controller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        print("Colliding");
         if(col.gameObject.CompareTag("platform"))
         {
             isGrounded = true;

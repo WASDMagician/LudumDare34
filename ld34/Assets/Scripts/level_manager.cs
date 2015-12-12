@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class level_manager : MonoBehaviour {
 
 	public GameObject platform_part;
-    int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
-    public static int water_level;
+	int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
+	public int water_level;
+	public Text water_level_display;
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +17,9 @@ public class level_manager : MonoBehaviour {
 		max_y = 50;
 		deadzone_min_x = -1;
 		deadzone_max_x = 1;
-		platform_y_distance = 2;
+		platform_y_distance = 6;
 		last_y_position = -2;
-        water_level = 0;
+		water_level = 0;
 
 		for(int i = 0; i < 50; i++)
 		{
@@ -40,6 +42,14 @@ public class level_manager : MonoBehaviour {
 		new_platform_position.y = last_y_position + platform_y_distance;
 		last_y_position = (int)new_platform_position.y;
 		new_platform.transform.position = new_platform_position;
+		new_platform.transform.parent = this.transform;
+		
+	}
+
+	public void update_water_display(int water_amount)
+	{
+		water_level += water_amount;
+		water_level_display.text = "Water Level: " + water_amount.ToString();
 		
 	}
 }
