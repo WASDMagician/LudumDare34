@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class player_controller : MonoBehaviour {
 
-	public float speed = 1f;
-	private float move = 1f;
+    public float jumpHeight;
+    public float moveSpeed;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 	
 	}
@@ -15,8 +14,22 @@ public class player_controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		move = Input.GetAxis ("Horizontal");
-		GetComponent<Rigidbody2D>().velocity = new Vector2(move * speed, GetComponent<Rigidbody2D>().velocity.y);
-	}
+
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+        }
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+
+    }
 
 }
