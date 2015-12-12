@@ -17,7 +17,7 @@ public class level_manager : MonoBehaviour {
 		max_y = 50;
 		deadzone_min_x = -1;
 		deadzone_max_x = 1;
-		platform_y_distance = 6;
+		platform_y_distance = 4;
 		last_y_position = -2;
 		water_level = 0;
 
@@ -49,7 +49,12 @@ public class level_manager : MonoBehaviour {
 	public void update_water_display(int water_amount)
 	{
 		water_level += water_amount;
-		water_level_display.text = "Water Level: " + water_amount.ToString();
+		//water_level_display.text = "Water Level: " + water_amount.ToString();
 		
+	}
+
+	public int get_water_leves()
+	{
+		return water_level;
 	}
 }

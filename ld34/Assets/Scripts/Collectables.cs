@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Collectables : MonoBehaviour {
 
-    level_manager manager;
+    public level_manager manager;
 
 	// Use this for initialization
 	void Start () {
