@@ -8,13 +8,11 @@ public class Collectables : MonoBehaviour {
 	
 	}
 
-    void onTriggerEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-
-        Debug.Log("Has Collided");
         if (col.gameObject.name == "Player")
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
