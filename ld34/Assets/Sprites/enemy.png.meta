@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 8008c0a3b88124341b62d5cfc6c5445b
-timeCreated: 1449939759
+timeCreated: 1449941483
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: enemy_0
+    21300002: enemy_1
+    21300004: enemy_2
+    21300006: enemy_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +42,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +53,67 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: enemy_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 318
+        width: 98
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49, y: 90}
+        - {x: -49, y: -90}
+        - {x: 49, y: -90}
+        - {x: 49, y: 90}
+    - name: enemy_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 318
+        width: 97
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.5, y: 90}
+        - {x: -48.5, y: -90}
+        - {x: 48.5, y: -90}
+        - {x: 48.5, y: 90}
+    - name: enemy_2
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 318
+        width: 122
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -61, y: 90}
+        - {x: -61, y: -90}
+        - {x: 61, y: -90}
+        - {x: 61, y: 90}
+    - name: enemy_5
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 318
+        width: 94
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: 90}
+        - {x: -47, y: -90}
+        - {x: 47, y: -90}
+        - {x: 47, y: 90}
     outline: []
   spritePackingTag: 
   userData: 
