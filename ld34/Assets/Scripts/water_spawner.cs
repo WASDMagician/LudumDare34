@@ -19,7 +19,7 @@ public class water_spawner : MonoBehaviour {
             Vector2 water_bottle_position = this.transform.position;
             water_bottle_position.y += new_water_bottle.GetComponent<Renderer>().bounds.extents.y;
             new_water_bottle.transform.position = water_bottle_position;
-            manager.number_of_water_bottles++;
+            manager.number_of_water_bottles++;      
         }
     }
 }
