@@ -30,6 +30,14 @@ public class player_controller : MonoBehaviour {
 		Vector3 player_position = transform.position;
 		player_position.x += (Input.GetAxis("Horizontal") * Time.deltaTime) * moveSpeed;
 		transform.position = player_position;
+        if(GetComponent<Rigidbody2D>().velocity.y > 0)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
 	}
 
 	public void set_grounded(bool grounded)
