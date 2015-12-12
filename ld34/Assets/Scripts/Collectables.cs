@@ -16,6 +16,7 @@ public class Collectables : MonoBehaviour {
         {
             Destroy(this.gameObject);
             manager.update_water_display(5);
+            manager.number_of_water_bottles--;
         }
     }
 
