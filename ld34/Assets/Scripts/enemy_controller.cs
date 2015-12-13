@@ -7,7 +7,7 @@ public class enemy_controller : MonoBehaviour {
     public GameObject compost;
     int direction = -1;
     int speed = 3;
-
+    bool isAttacking = false;
 
     private Animator animator;
     private player_controller m_player;
@@ -47,7 +47,19 @@ public class enemy_controller : MonoBehaviour {
                 animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
-    
+        if(Vector3.Distance(m_player.transform.position, transform.position) < 1)
+        {
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+
+        if(isAttacking == true)
+        {
+            animator.SetInteger("Enemy_Anim_List", 3);
+        }
 }
 
 
@@ -83,16 +95,31 @@ public class enemy_controller : MonoBehaviour {
         {
             print(m_player.transform.localScale.x.ToString() + " " + m_player.isAttacking);
 
-            if(m_player.transform.localScale.x <= 0 && m_player.isAttacking)
+            if (m_player.isAttacking)
             {
-                Debug.Log("Hit left");
-                GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
-            }
+                if (m_player.transform.localScale.x <= 0)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
+                }
 
-            if (m_player.transform.localScale.x >= 0 && m_player.isAttacking)
+                if (m_player.transform.localScale.x >= 0)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
+                }
+            }
+            else
             {
-                Debug.Log("Hit right");
-                GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
+                if (isAttacking)
+                {
+                    if (transform.localScale.x <= 0)
+                    {
+                        m_player.GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
+                    }
+                    else
+                    {
+                        m_player.GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
+                    }
+                }
             }
         }
     }
