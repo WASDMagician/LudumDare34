@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class enemy_controller : MonoBehaviour {
-
+    public level_manager manager;
     public int health = 100;
     public GameObject compost;
     int direction = -1;
@@ -11,13 +11,14 @@ public class enemy_controller : MonoBehaviour {
 
     private Animator animator;
     private player_controller m_player;
-    Vector2 pushBackMinus = new Vector2(-200, 0);
-    Vector2 pushBackPositive = new Vector2(200, 0);
+    Vector2 pushBackMinus = new Vector2(-10, -10);
+    Vector2 pushBackPositive = new Vector2(10, 10);
 
     // Use this for initialization
     void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<player_controller>();
         animator = this.GetComponent<Animator>();
+        manager = GameObject.FindGameObjectWithTag("level_manager").GetComponent<level_manager>();
     }
 
 
@@ -66,7 +67,7 @@ public class enemy_controller : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
 
         if (col.gameObject.CompareTag("PlatformOfDeath"))
@@ -74,23 +75,24 @@ public class enemy_controller : MonoBehaviour {
             GameObject new_compost = Instantiate(compost);
             new_compost.transform.position = this.transform.position;
             new_compost.transform.parent = new_compost.transform.parent;
+            manager.numeber_of_enemies--;
             Destroy(this.gameObject);
         }
 
         if (col.gameObject.CompareTag("Player"))
         {
+            print(m_player.transform.localScale.x.ToString() + " " + m_player.isAttacking);
 
-
-            if(m_player.moveSpeed <= -1)
+            if(m_player.transform.localScale.x <= 0 && m_player.isAttacking)
             {
-                Debug.Log("Hit");
-                GetComponent<Rigidbody2D>().AddForce(pushBackMinus);
+                Debug.Log("Hit left");
+                GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
             }
 
-            if (m_player.moveSpeed >= 1)
+            if (m_player.transform.localScale.x >= 0 && m_player.isAttacking)
             {
-                Debug.Log("Hit");
-                GetComponent<Rigidbody2D>().AddForce(pushBackPositive);
+                Debug.Log("Hit right");
+                GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
             }
         }
     }
