@@ -26,16 +26,18 @@ public class enemy_controller : MonoBehaviour {
 
         Move();
 
+
+
         if (direction == 0)
         {
-            animator.SetInteger("Animation_List", 0);
+            animator.SetInteger("Enemy_Anim_List", 0);
         }
         if (direction > 0)
         {
             if (transform.localScale.x < 0)
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                animator.SetInteger("Animation_List", 1);
+                animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
         else if (direction < 0)
@@ -43,7 +45,7 @@ public class enemy_controller : MonoBehaviour {
             if (transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                animator.SetInteger("Animation_List", 1);
+                animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
     
