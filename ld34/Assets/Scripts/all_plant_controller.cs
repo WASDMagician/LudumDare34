@@ -15,10 +15,6 @@ public class all_plant_controller : MonoBehaviour {
 
 	void Update()
 	{
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            add_section();
-        }
 
         if(water.get_water_leves() >= last_water_amount + 5)
         {

@@ -26,8 +26,6 @@ public class enemy_controller : MonoBehaviour {
 
         Move();
 
-
-
         if (direction == 0)
         {
             animator.SetInteger("Enemy_Anim_List", 0);
