@@ -9,7 +9,7 @@ public class enemy_controller : MonoBehaviour {
     int speed = 5;
 
 
-
+    private Animator animator;
     private player_controller m_player;
     Vector2 pushBackMinus = new Vector2(-200, 0);
     Vector2 pushBackPositive = new Vector2(200, 0);
@@ -17,6 +17,7 @@ public class enemy_controller : MonoBehaviour {
     // Use this for initialization
     void Start () {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<player_controller>();
+        animator = this.GetComponent<Animator>();
     }
 
 	
@@ -24,6 +25,29 @@ public class enemy_controller : MonoBehaviour {
 	void Update () {
         Move();
 	}
+
+        if (direction == 0)
+        {
+            animator.SetInteger("Animation_List", 0);
+        }
+        if (direction > 0)
+        {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                animator.SetInteger("Animation_List", 1);
+            }
+        }
+        else if (direction < 0)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                animator.SetInteger("Animation_List", 1);
+            }
+        }
+    }
+
 
     void Move()
     {
