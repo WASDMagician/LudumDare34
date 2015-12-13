@@ -43,6 +43,12 @@ public class enemy_controller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
+
+        if (col.gameObject.CompareTag("PlatformOfDeath"))
+        {
+            Destroy(this);
+        }
+
         if (col.gameObject.CompareTag("Player"))
         {
 
