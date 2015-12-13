@@ -22,7 +22,7 @@ public class enemy_controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Move();
+        Move();
 	}
 
     void Move()
@@ -37,7 +37,7 @@ public class enemy_controller : MonoBehaviour {
         if (col.gameObject.CompareTag("direction"))
         {
             direction *= -1;
-          //  Move();
+            Move();
         }
     }
 
@@ -49,15 +49,12 @@ public class enemy_controller : MonoBehaviour {
             GameObject new_compost = Instantiate(compost);
             new_compost.transform.position = this.transform.position;
             new_compost.transform.parent = new_compost.transform.parent;
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         if (col.gameObject.CompareTag("Player"))
         {
 
-            //health -= 25;
-            // check_health();
-            // direction *= -1;
 
             if(m_player.moveSpeed <= -1)
             {
