@@ -54,6 +54,7 @@ public class player_controller : MonoBehaviour {
 		transform.position = player_position;
         if(GetComponent<Rigidbody2D>().velocity.y > 0)
         {
+            print("Veloc");
             Physics2D.IgnoreLayerCollision(8, 10, true);
         }
         else
