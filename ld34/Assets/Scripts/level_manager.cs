@@ -32,7 +32,7 @@ public class level_manager : MonoBehaviour {
 		last_y_position = -2;
 		water_level = 0;
 
-		for(int i = 0; i < 50; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			add_platform();
 		}
