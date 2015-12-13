@@ -23,7 +23,9 @@ public class enemy_controller : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
         Move();
+
         if (direction == 0)
         {
             animator.SetInteger("Enemy_Anim_List", 0);
@@ -44,7 +46,8 @@ public class enemy_controller : MonoBehaviour {
                 animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
-    }
+    
+}
 
 
     void Move()
