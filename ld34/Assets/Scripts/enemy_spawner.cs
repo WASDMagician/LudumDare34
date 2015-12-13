@@ -23,4 +23,14 @@ public class enemy_spawner : MonoBehaviour {
             manager.numeber_of_enemies++;
         }
     }
+
+    public void Spawn(bool spawn)
+    {
+        GameObject new_enemy = Instantiate(enemy);
+        Vector2 new_enemy_position = this.transform.position;
+        new_enemy_position.y += new_enemy.GetComponent<Renderer>().bounds.extents.y * 2;
+        new_enemy.transform.position = new_enemy_position;
+        new_enemy.transform.parent = this.transform;
+        manager.numeber_of_enemies++;
+    }
 }
