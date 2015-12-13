@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class enemy_controller : MonoBehaviour {
-       
+
     public int health = 100;
     public GameObject compost;
     int direction = -1;
@@ -15,16 +15,16 @@ public class enemy_controller : MonoBehaviour {
     Vector2 pushBackPositive = new Vector2(200, 0);
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<player_controller>();
         animator = this.GetComponent<Animator>();
     }
 
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+
         Move();
-	}
 
         if (direction == 0)
         {
@@ -46,7 +46,8 @@ public class enemy_controller : MonoBehaviour {
                 animator.SetInteger("Animation_List", 1);
             }
         }
-    }
+    
+}
 
 
     void Move()
