@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b3ec6249d0edc944298892c55ab5be37
-timeCreated: 1449952394
+timeCreated: 1450009167
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,12 @@ TextureImporter:
     21300010: enemy_5
     21300012: enemy_6
     21300014: enemy_7
+    21300016: enemy_8
+    21300018: enemy_9
+    21300020: enemy_10
+    21300022: enemy_11
+    21300024: enemy_12
+    21300026: enemy_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,7 +68,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 319
+        y: 320
         width: 90
         height: 179
       alignment: 0
@@ -89,7 +95,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 135
-        y: 320
+        y: 321
         width: 92
         height: 178
       alignment: 0
@@ -108,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 350
-        y: 320
+        y: 321
         width: 119
         height: 178
       alignment: 0
@@ -127,7 +133,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 518
-        y: 321
+        y: 322
         width: 88
         height: 177
       alignment: 0
@@ -145,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 224
+        y: 225
         width: 195
         height: 80
       alignment: 0
@@ -162,7 +168,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 386
-        y: 220
+        y: 221
         width: 170
         height: 76
       alignment: 0
@@ -185,7 +191,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 26
-        y: 42
+        y: 43
         width: 88
         height: 141
       alignment: 0
@@ -209,7 +215,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 206
-        y: 67
+        y: 68
         width: 226
         height: 72
       alignment: 0
@@ -222,6 +228,175 @@ TextureImporter:
         - {x: 107, y: -36}
         - {x: 113, y: -30}
         - {x: 113, y: 30}
+    - name: enemy_8
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 381
+        width: 132
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -66, y: 43}
+        - {x: -66, y: -43}
+        - {x: 66, y: -43}
+        - {x: 66, y: 33}
+        - {x: 62, y: 43}
+    - name: enemy_9
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 323
+        width: 119
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.5, y: -75}
+        - {x: 59.5, y: -6}
+        - {x: 59.5, y: 18}
+        - {x: 46.5, y: 84}
+        - {x: 36.5, y: 88}
+        - {x: -41.5, y: 88}
+        - {x: -59.5, y: 48}
+        - {x: -59.5, y: -55}
+        - {x: -48.5, y: -57}
+        - {x: -38.5, y: -56}
+        - {x: -43.5, y: -88}
+        - {x: -30.5, y: -88}
+        - {x: -28.5, y: -86}
+        - {x: 14.5, y: -88}
+        - {x: 23.5, y: -88}
+    - name: enemy_10
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 320
+        width: 139
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.5, y: 89.5}
+        - {x: -56.5, y: 62.5}
+        - {x: -69.5, y: 7.5}
+        - {x: -69.5, y: -10.5}
+        - {x: -64.5, y: -10.5}
+        - {x: -56.5, y: -48.5}
+        - {x: -53.5, y: -56.5}
+        - {x: -41.5, y: -89.5}
+        - {x: 46.5, y: -89.5}
+        - {x: 69.5, y: 9.5}
+        - {x: 69.5, y: 44.5}
+        - {x: 41.5, y: 89.5}
+    - name: enemy_11
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 150
+        width: 372
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 170, y: 51}
+        - {x: 32, y: 51}
+        - {x: 24, y: 39}
+        - {x: 27, y: 19}
+        - {x: 24, y: 32}
+        - {x: 13, y: 41}
+        - {x: -18, y: 41}
+        - {x: -31, y: 22}
+        - {x: -29, y: 32}
+        - {x: -39, y: 44}
+        - {x: -77, y: 39}
+        - {x: -80, y: 22}
+        - {x: -96, y: 45}
+        - {x: -119, y: 51}
+        - {x: -176, y: 51}
+        - {x: -186, y: 39}
+        - {x: -186, y: 25}
+        - {x: -183, y: 26}
+        - {x: -181, y: 29}
+        - {x: -173, y: 36}
+        - {x: -171, y: 34}
+        - {x: -142, y: 28}
+        - {x: -161, y: 31}
+        - {x: -163, y: 27}
+        - {x: -165, y: 21}
+        - {x: -165, y: 18}
+        - {x: -163, y: 16}
+        - {x: -153, y: 16}
+        - {x: -164, y: 15}
+        - {x: -167, y: 11}
+        - {x: -167, y: -7}
+        - {x: -162, y: -11}
+        - {x: -168, y: -9}
+        - {x: -169, y: 6}
+        - {x: -165, y: 30}
+        - {x: -167, y: 32}
+        - {x: -173, y: 33}
+        - {x: -176, y: 32}
+        - {x: -181, y: 28}
+        - {x: -186, y: 25}
+        - {x: -186, y: -30}
+        - {x: -183, y: -37}
+        - {x: 56, y: -51}
+        - {x: 179, y: -51}
+        - {x: 186, y: 2}
+        - {x: 186, y: 37}
+        - {x: 182, y: 47}
+    - name: enemy_12
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 5
+        width: 212
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 105, y: -20}
+        - {x: 106, y: -15}
+        - {x: 106, y: 58}
+        - {x: 60, y: 58}
+        - {x: 34, y: 53}
+        - {x: -38, y: 48}
+        - {x: -47, y: 44}
+        - {x: -73, y: 58}
+        - {x: -106, y: 58}
+        - {x: -106, y: -31}
+        - {x: -23, y: -58}
+        - {x: 99, y: -58}
+        - {x: 104, y: -43}
+        - {x: 101, y: -33}
+        - {x: 79, y: -45}
+    - name: enemy_13
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 4
+        width: 201
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -100.5, y: 65}
+        - {x: -100.5, y: 53}
+        - {x: -87.5, y: 33}
+        - {x: -100.5, y: 16}
+        - {x: -100.5, y: -20}
+        - {x: -74.5, y: -65}
+        - {x: 100.5, y: -65}
+        - {x: 100.5, y: 62}
+        - {x: -15.5, y: 65}
     outline: []
   spritePackingTag: 
   userData: 
