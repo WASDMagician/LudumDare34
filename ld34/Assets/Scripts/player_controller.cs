@@ -5,6 +5,7 @@ public class player_controller : MonoBehaviour {
 
 	public float jumpHeight;
 	public float moveSpeed;
+    public bool isAttacking;
 	private bool isGrounded = true;
     private Animator animator;
 
@@ -32,6 +33,7 @@ public class player_controller : MonoBehaviour {
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 animator.SetInteger("Animation_List", 1);
+                isAttacking = false;
             }
         }
         else if (horizontal < 0)
@@ -40,13 +42,14 @@ public class player_controller : MonoBehaviour {
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 animator.SetInteger("Animation_List", 1);
+                isAttacking = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded == true))
         {            
-                animator.SetInteger("Animation_List", 2);
-            print("THWACK");
-            
+            animator.SetInteger("Animation_List", 2);
+            isAttacking = true;   
+
         }
         if (Input.GetKeyDown(KeyCode.W))
 		{
@@ -59,7 +62,6 @@ public class player_controller : MonoBehaviour {
 		transform.position = player_position;
         if(GetComponent<Rigidbody2D>().velocity.y > 0)
         {
-            print("Veloc");
             Physics2D.IgnoreLayerCollision(8, 10, true);
         }
         else
