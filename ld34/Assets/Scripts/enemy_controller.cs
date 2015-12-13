@@ -24,7 +24,6 @@ public class enemy_controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Move();
-	}
 
         if (direction == 0)
         {
@@ -34,7 +33,7 @@ public class enemy_controller : MonoBehaviour {
         {
             if (transform.localScale.x < 0)
             {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 animator.SetInteger("Animation_List", 1);
             }
         }
@@ -42,7 +41,7 @@ public class enemy_controller : MonoBehaviour {
         {
             if (transform.localScale.x > 0)
             {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.z);
                 animator.SetInteger("Animation_List", 1);
             }
         }
