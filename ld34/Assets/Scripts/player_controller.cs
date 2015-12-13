@@ -5,23 +5,45 @@ public class player_controller : MonoBehaviour {
 
 	public float jumpHeight;
 	public float moveSpeed;
-    public float newPos, oldPos;
-    private bool isGrounded = true;
+	private bool isGrounded = true;
+    private Animator animator;
 
-	
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-	
-	}
+        animator = this.GetComponent<Animator>();
+    }
 
+  
 
 	// Update is called once per frame
 	void Update () 
 	{
-       
-		if(Input.GetKeyDown(KeyCode.W))
+        var vertical = Input.GetAxis("Vertical");
+        var horizontal = Input.GetAxis("Horizontal");
+        if (horizontal == 0)
+        {
+            animator.SetInteger("Animation_List", 0);
+        }
+        if (horizontal > 0)
+        {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                animator.SetInteger("Animation_List", 1);
+            }
+        }
+        else if (horizontal < 0)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                animator.SetInteger("Animation_List", 1);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
 			isGrounded = false;
@@ -29,7 +51,6 @@ public class player_controller : MonoBehaviour {
 
 		Vector3 player_position = transform.position;
 		player_position.x += (Input.GetAxis("Horizontal") * Time.deltaTime) * moveSpeed;
-        
 		transform.position = player_position;
         if(GetComponent<Rigidbody2D>().velocity.y > 0)
         {
@@ -40,7 +61,6 @@ public class player_controller : MonoBehaviour {
             Physics2D.IgnoreLayerCollision(8, 10, false);
         }
 	}
-
 
 	public void set_grounded(bool grounded)
 	{
