@@ -9,11 +9,13 @@ public class level_manager : MonoBehaviour {
 
 	public GameObject platform_part;
 	int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
+    
 	public int water_level;
 	public Text water_level_display;
 
 	public List<GameObject> platforms;
 
+    public int numeber_of_enemies = 0;
 	public int number_of_water_bottles = 0;
 	
 	// Use this for initialization
@@ -40,6 +42,11 @@ public class level_manager : MonoBehaviour {
 		{
 			update_water_bottles();
 		}
+
+        if(numeber_of_enemies <= 3)
+        {
+            update_enemies();
+        }
 	}
 
 	void update_water_bottles()
@@ -49,6 +56,15 @@ public class level_manager : MonoBehaviour {
 			platforms[i].GetComponent<water_spawner>().Spawn();
 		}
 	}
+
+    void update_enemies()
+    {
+        print("Respawn");
+        for(int i = 0; i< platforms.Count; i++)
+        {
+            platforms[i].GetComponent<enemy_spawner>().Spawn();
+        }
+    }
 
 	void add_platform()
 	{
