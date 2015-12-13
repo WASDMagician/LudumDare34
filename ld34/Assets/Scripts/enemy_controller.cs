@@ -36,11 +36,23 @@ public class enemy_controller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
+
+        if (col.gameObject.tag == "PlatformOfDeath")
+        {
+            GameObject new_compost = Instantiate(compost);
+            new_compost.transform.position = this.transform.position;
+            new_compost.transform.parent = new_compost.transform.parent;
+            Destroy(this.gameObject);
+
+        }
+
         if (col.gameObject.CompareTag("Player"))
         {
-            health -= 25;
-            check_health();
-            direction *= -1;
+            //health -= 25;
+            // check_health();
+            // direction *= -1;
+            
+
         }
     }
 
