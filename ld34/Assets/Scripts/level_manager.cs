@@ -12,9 +12,9 @@ public class level_manager : MonoBehaviour {
 	public int water_level;
 	public Text water_level_display;
 
-    public List<GameObject> platforms;
+	public List<GameObject> platforms;
 
-    public int number_of_water_bottles = 0;
+	public int number_of_water_bottles = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -34,41 +34,41 @@ public class level_manager : MonoBehaviour {
 		}
 	}
 
-    void Update()
-    {
-        if(number_of_water_bottles <= 1)
-        {
-            update_water_bottles();
-        }
-    }
+	void Update()
+	{
+		if(number_of_water_bottles <= 1)
+		{
+			update_water_bottles();
+		}
+	}
 
-    void update_water_bottles()
-    {
-        for(int i = 0; i < platforms.Count; i++)
-        {
-            platforms[i].GetComponent<water_spawner>().Spawn();
-        }
-    }
+	void update_water_bottles()
+	{
+		for(int i = 0; i < platforms.Count; i++)
+		{
+			platforms[i].GetComponent<water_spawner>().Spawn();
+		}
+	}
 
 	void add_platform()
 	{
 		GameObject new_platform = Instantiate(platform_part);
 		Vector3 new_platform_position = new_platform.transform.position;
-        new_platform.transform.localScale = new Vector3(Random.Range(1.5f, 4), 1, 1);
+		new_platform.transform.localScale = new Vector3(Random.Range(1.5f, 4), 1, 1);
 		if (Random.Range(1, 3) == 2)
 		{
-			new_platform_position.x = Random.Range(min_x, deadzone_min_x);
+			new_platform_position.x = Random.Range(min_x + new_platform.GetComponent<SpriteRenderer>().bounds.size.x / 2, deadzone_min_x);
 		}
 		else
 		{
-			new_platform_position.x = Random.Range(deadzone_max_x, max_x);
+			new_platform_position.x = Random.Range(deadzone_max_x, max_x - new_platform.GetComponent<SpriteRenderer>().bounds.size.x / 2);
 		}
 		new_platform_position.y = last_y_position + platform_y_distance;
 		last_y_position = (int)new_platform_position.y;
 		new_platform.transform.position = new_platform_position;
 		new_platform.transform.parent = this.transform;
-        
-        platforms.Add(new_platform);
+		
+		platforms.Add(new_platform);
 		
 	}
 

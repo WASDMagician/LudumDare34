@@ -7,11 +7,6 @@ public class enemy_controller : MonoBehaviour {
     public GameObject compost;
     int direction = -1;
     int speed = 5;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
