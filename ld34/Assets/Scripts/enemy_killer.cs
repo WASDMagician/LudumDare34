@@ -12,7 +12,6 @@ public class enemy_killer : MonoBehaviour {
     {
         if (col.gameObject.tag == "PlatformOfDeath")
         {
-            print("Collided");
             Destroy(this);
         }
     }
