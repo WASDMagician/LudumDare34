@@ -16,12 +16,24 @@ public class Collectables : MonoBehaviour {
     {
         if (col.gameObject.name == "Player")
         {
-            manager.update_water_display(5);
-            manager.number_of_water_bottles--;
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<SpriteRenderer>().enabled = false;
-            clip.Play();
-            Destroy(gameObject, clip.clip.length);
+            if (tag == "water")
+            {
+                manager.water_level++;
+                manager.number_of_water_bottles--;
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                clip.Play();
+                Destroy(gameObject, clip.clip.length);
+            }
+            if(tag == "manure")
+            {
+                manager.manure_level++;
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                clip.Play();
+                Destroy(gameObject, clip.clip.length);
+            }
+
         }
     }
 
