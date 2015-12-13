@@ -9,6 +9,7 @@ public class enemy_controller : MonoBehaviour {
     int speed = 5;
 
 
+
     private player_controller m_player;
     Vector2 pushBackMinus = new Vector2(-200, 0);
     Vector2 pushBackPositive = new Vector2(200, 0);
@@ -17,6 +18,7 @@ public class enemy_controller : MonoBehaviour {
     void Start () {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<player_controller>();
     }
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,18 +43,9 @@ public class enemy_controller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-
-        if (col.gameObject.tag == "PlatformOfDeath")
-        {
-            GameObject new_compost = Instantiate(compost);
-            new_compost.transform.position = this.transform.position;
-            new_compost.transform.parent = new_compost.transform.parent;
-            Destroy(this.gameObject);
-
-        }
-
         if (col.gameObject.CompareTag("Player"))
         {
+
             //health -= 25;
             // check_health();
             // direction *= -1;
@@ -68,7 +61,6 @@ public class enemy_controller : MonoBehaviour {
                 Debug.Log("Hit");
                 GetComponent<Rigidbody2D>().AddForce(pushBackPositive);
             }
-
         }
     }
 
