@@ -8,13 +8,7 @@ public class enemy_killer : MonoBehaviour {
         
     }
 	
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "PlatformOfDeath")
-        {
-            Destroy(this);
-        }
-    }
+    
 
 	// Update is called once per frame
 	void Update () {

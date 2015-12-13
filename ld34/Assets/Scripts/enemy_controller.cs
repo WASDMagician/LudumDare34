@@ -49,7 +49,7 @@ public class enemy_controller : MonoBehaviour {
             GameObject new_compost = Instantiate(compost);
             new_compost.transform.position = this.transform.position;
             new_compost.transform.parent = new_compost.transform.parent;
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         if (col.gameObject.CompareTag("Player"))
