@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class enemy_controller : MonoBehaviour {
-       
+
     public int health = 100;
     public GameObject compost;
     int direction = -1;
@@ -15,34 +15,33 @@ public class enemy_controller : MonoBehaviour {
     Vector2 pushBackPositive = new Vector2(200, 0);
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<player_controller>();
         animator = this.GetComponent<Animator>();
     }
 
-	
-	// Update is called once per frame
-	void Update () {
-        Move();
 
+    // Update is called once per frame
+    void Update() {
+        Move();
         if (direction == 0)
         {
-            animator.SetInteger("Animation_List", 0);
+            animator.SetInteger("Enemy_Anim_List", 0);
         }
         if (direction > 0)
         {
             if (transform.localScale.x < 0)
             {
-                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                animator.SetInteger("Animation_List", 1);
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
         else if (direction < 0)
         {
             if (transform.localScale.x > 0)
             {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.z);
-                animator.SetInteger("Animation_List", 1);
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
     }
