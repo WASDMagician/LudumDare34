@@ -42,7 +42,11 @@ public class player_controller : MonoBehaviour {
                 animator.SetInteger("Animation_List", 1);
             }
         }
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {            
+                animator.SetInteger("Animation_List", 2);
+            
+        }
         if (Input.GetKeyDown(KeyCode.W))
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
