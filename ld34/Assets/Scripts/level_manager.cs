@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class level_manager : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class level_manager : MonoBehaviour {
 	int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
 	public int water_level;
 	public Text water_level_display;
+
+    public List<GameObject> platforms;
+
+    public int number_of_water_bottles = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -29,6 +34,22 @@ public class level_manager : MonoBehaviour {
 		}
 	}
 
+    void Update()
+    {
+        if(number_of_water_bottles <= 1)
+        {
+            update_water_bottles();
+        }
+    }
+
+    void update_water_bottles()
+    {
+        for(int i = 0; i < platforms.Count; i++)
+        {
+            platforms[i].GetComponent<water_spawner>().Spawn();
+        }
+    }
+
 	void add_platform()
 	{
 		GameObject new_platform = Instantiate(platform_part);
@@ -45,6 +66,7 @@ public class level_manager : MonoBehaviour {
 		last_y_position = (int)new_platform_position.y;
 		new_platform.transform.position = new_platform_position;
 		new_platform.transform.parent = this.transform;
+        platforms.Add(new_platform);
 		
 	}
 

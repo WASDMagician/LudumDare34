@@ -6,6 +6,7 @@ public class all_plant_controller : MonoBehaviour {
 	public GameObject plant_section;
     private level_manager water;
 	private int number_of_sections = 0;
+    private int last_water_amount = 0;
 
     void Start()
     {
@@ -19,9 +20,10 @@ public class all_plant_controller : MonoBehaviour {
             add_section();
         }
 
-        if(water.get_water_leves() == 5)
+        if(water.get_water_leves() >= last_water_amount + 5)
         {
-          
+            add_section();
+            last_water_amount = water.get_water_leves();
         }
 	}
 
