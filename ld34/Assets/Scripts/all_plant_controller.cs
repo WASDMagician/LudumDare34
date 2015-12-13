@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class all_plant_controller : MonoBehaviour {
@@ -10,6 +11,10 @@ public class all_plant_controller : MonoBehaviour {
     private int last_water_amount = 0;
     private int last_manure_amount = 0;
     public int max_levels = 0;
+    private int required_water = 5;
+    private int required_compost = 3;
+
+    public Text required_amounts;
 
     void Start()
     {
@@ -20,13 +25,43 @@ public class all_plant_controller : MonoBehaviour {
 	void Update()
 	{
 
-        if(manager.get_water_leves() >= last_water_amount + 5 && manager.manure_level >= last_manure_amount + 2)
+        if(manager.get_water_leves() >= required_water && manager.manure_level >= required_compost)
         {
             add_section();
             last_water_amount = manager.get_water_leves();
             last_manure_amount = manager.manure_level;
+            manager.water_level = 0;
+            manager.manure_level = 0;
         }
+        Update_Stats();
 	}
+
+    void Update_Stats()
+    {
+        if (number_of_sections < 6)
+        {
+            if (manager.water_level < required_water)
+            {
+                required_amounts.text = "Water: " + manager.water_level.ToString() + "/" + required_water.ToString() + "\n";
+            }
+            else
+            {
+                required_amounts.text = "Water: " + required_water.ToString() + "/" + required_water.ToString() + "\n";
+            }
+            if (manager.manure_level < required_compost)
+            {
+                required_amounts.text += "Compost: " + manager.manure_level.ToString() + "/" + required_compost.ToString();
+            }
+            else
+            {
+                required_amounts.text += "Compost: " + required_compost.ToString() + "/" + required_compost.ToString();
+            }
+        }
+        else
+        {
+            required_amounts.text = "Water: -/- \nCompost: -/-";
+        }
+    }
 
 	public void add_section()
 	{

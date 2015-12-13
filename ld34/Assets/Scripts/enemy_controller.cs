@@ -11,7 +11,7 @@ public class enemy_controller : MonoBehaviour {
 
     private Animator animator;
     private player_controller m_player;
-    Vector2 pushBackMinus = new Vector2(-10, -10);
+    Vector2 pushBackMinus = new Vector2(-10, 10);
     Vector2 pushBackPositive = new Vector2(10, 10);
 
     // Use this for initialization
@@ -93,10 +93,20 @@ public class enemy_controller : MonoBehaviour {
 
         if (col.gameObject.CompareTag("Player"))
         {
-            print(m_player.transform.localScale.x.ToString() + " " + m_player.isAttacking);
-
-            if (m_player.isAttacking)
+            if (Random.Range(0, 3) == 2)
             {
+                if (transform.localScale.x <= 0)
+                {
+                    m_player.GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    m_player.GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
+                }
+            }
+            else if (m_player.isAttacking)
+            {
+                
                 if (m_player.transform.localScale.x <= 0)
                 {
                     GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
@@ -105,20 +115,6 @@ public class enemy_controller : MonoBehaviour {
                 if (m_player.transform.localScale.x >= 0)
                 {
                     GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
-                }
-            }
-            else
-            {
-                if (isAttacking)
-                {
-                    if (transform.localScale.x <= 0)
-                    {
-                        m_player.GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
-                    }
-                    else
-                    {
-                        m_player.GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
-                    }
                 }
             }
         }
