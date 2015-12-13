@@ -46,6 +46,9 @@ public class enemy_controller : MonoBehaviour {
 
         if (col.gameObject.CompareTag("PlatformOfDeath"))
         {
+            GameObject new_compost = Instantiate(compost);
+            new_compost.transform.position = this.transform.position;
+            new_compost.transform.parent = new_compost.transform.parent;
             Destroy(this);
         }
 
