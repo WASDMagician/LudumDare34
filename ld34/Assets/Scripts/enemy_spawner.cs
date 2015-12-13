@@ -12,6 +12,7 @@ public class enemy_spawner : MonoBehaviour {
 
     public void Spawn()
     {
+        print("Spawn");
         if (Random.Range(1, 3) == 2)
         {
             GameObject new_enemy = Instantiate(enemy);
