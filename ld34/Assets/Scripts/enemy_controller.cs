@@ -6,7 +6,7 @@ public class enemy_controller : MonoBehaviour {
     public int health = 100;
     public GameObject compost;
     int direction = -1;
-    int speed = 5;
+    int speed = 3;
 
 
     private Animator animator;
