@@ -5,7 +5,8 @@ public class player_controller : MonoBehaviour {
 
 	public float jumpHeight;
 	public float moveSpeed;
-	private bool isGrounded = true;
+    public float newPos, oldPos;
+    private bool isGrounded = true;
 
 	
 
@@ -15,12 +16,11 @@ public class player_controller : MonoBehaviour {
 	
 	}
 
-  
 
 	// Update is called once per frame
 	void Update () 
 	{
-        
+       
 		if(Input.GetKeyDown(KeyCode.W))
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
@@ -29,6 +29,7 @@ public class player_controller : MonoBehaviour {
 
 		Vector3 player_position = transform.position;
 		player_position.x += (Input.GetAxis("Horizontal") * Time.deltaTime) * moveSpeed;
+        
 		transform.position = player_position;
         if(GetComponent<Rigidbody2D>().velocity.y > 0)
         {
@@ -39,6 +40,7 @@ public class player_controller : MonoBehaviour {
             GetComponent<BoxCollider2D>().enabled = true;
         }
 	}
+
 
 	public void set_grounded(bool grounded)
 	{

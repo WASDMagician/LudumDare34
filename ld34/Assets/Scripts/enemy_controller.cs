@@ -2,20 +2,25 @@
 using System.Collections;
 
 public class enemy_controller : MonoBehaviour {
-
+       
     public int health = 100;
     public GameObject compost;
     int direction = -1;
     int speed = 5;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+
+    private player_controller m_player;
+    Vector2 pushBackMinus = new Vector2(-200, 0);
+    Vector2 pushBackPositive = new Vector2(200, 0);
+
+    // Use this for initialization
+    void Start () {
+        m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<player_controller>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
+        //Move();
 	}
 
     void Move()
@@ -30,7 +35,7 @@ public class enemy_controller : MonoBehaviour {
         if (col.gameObject.CompareTag("direction"))
         {
             direction *= -1;
-            Move();
+          //  Move();
         }
     }
 
@@ -51,7 +56,18 @@ public class enemy_controller : MonoBehaviour {
             //health -= 25;
             // check_health();
             // direction *= -1;
-            
+
+            if(m_player.moveSpeed <= -1)
+            {
+                Debug.Log("Hit");
+                GetComponent<Rigidbody2D>().AddForce(pushBackMinus);
+            }
+
+            if (m_player.moveSpeed >= 1)
+            {
+                Debug.Log("Hit");
+                GetComponent<Rigidbody2D>().AddForce(pushBackPositive);
+            }
 
         }
     }
