@@ -42,9 +42,10 @@ public class player_controller : MonoBehaviour {
                 animator.SetInteger("Animation_List", 1);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded == true))
         {            
                 animator.SetInteger("Animation_List", 2);
+            print("THWACK");
             
         }
         if (Input.GetKeyDown(KeyCode.W))
