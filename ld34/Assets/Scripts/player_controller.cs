@@ -42,7 +42,11 @@ public class player_controller : MonoBehaviour {
                 animator.SetInteger("Animation_List", 1);
             }
         }
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {            
+                animator.SetInteger("Animation_List", 2);
+            
+        }
         if (Input.GetKeyDown(KeyCode.W))
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
@@ -54,6 +58,7 @@ public class player_controller : MonoBehaviour {
 		transform.position = player_position;
         if(GetComponent<Rigidbody2D>().velocity.y > 0)
         {
+            print("Veloc");
             Physics2D.IgnoreLayerCollision(8, 10, true);
         }
         else
