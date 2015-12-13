@@ -8,18 +8,22 @@ public class player_controller : MonoBehaviour {
     public bool isAttacking;
 	private bool isGrounded = true;
     private Animator animator;
+    public AudioClip hit;
+    private AudioSource source;
 
 
     // Use this for initialization
     void Start () 
 	{
         animator = this.GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
+
     }
 
-  
 
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update () 
 	{
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
@@ -49,8 +53,7 @@ public class player_controller : MonoBehaviour {
         {            
             animator.SetInteger("Animation_List", 2);
             isAttacking = true;   
-
-        }
+         }
         if (Input.GetKeyDown(KeyCode.W))
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
@@ -86,5 +89,11 @@ public class player_controller : MonoBehaviour {
         {
             isGrounded = true;
         }
+        if (col.gameObject.CompareTag("enemy"))
+        {
+            //playaudio(hit); 
+            source.PlayOneShot(hit);
+        }
+
     }
 }
