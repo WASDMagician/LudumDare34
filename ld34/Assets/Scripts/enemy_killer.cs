@@ -8,10 +8,7 @@ public class enemy_killer : MonoBehaviour {
         
     }
 	
-    void OnCollisionEnter2D(Collision2D col)
-    {
-       
-    }
+  
 
 	// Update is called once per frame
 	void Update () {
