@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public class level_manager : MonoBehaviour {
 
-	
-
 	public GameObject platform_part;
 	int min_x, max_x, min_y, max_y, deadzone_min_x, deadzone_max_x, platform_y_distance, last_y_position;
 
@@ -38,6 +36,8 @@ public class level_manager : MonoBehaviour {
 		{
 			add_platform();
 		}
+
+        print(PlayerPrefs.HasKey("highscore"));
 	}
 
 	void Update()

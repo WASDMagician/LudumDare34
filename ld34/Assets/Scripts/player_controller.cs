@@ -23,7 +23,6 @@ public class player_controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-        print("Is grounded: " + isGrounded);
 		var vertical = Input.GetAxis("Vertical");
 		var horizontal = Input.GetAxis("Horizontal");
 		if (horizontal == 0)
