@@ -20,7 +20,7 @@ public class enemy_spawner : MonoBehaviour {
             new_enemy_position.y += new_enemy.GetComponent<Renderer>().bounds.extents.y * 2;
             new_enemy.transform.position = new_enemy_position;
             new_enemy.transform.parent = this.transform;
-            manager.numeber_of_enemies++;
+            manager.enemies.Add(new_enemy);
         }
     }
 
@@ -31,6 +31,6 @@ public class enemy_spawner : MonoBehaviour {
         new_enemy_position.y += new_enemy.GetComponent<Renderer>().bounds.extents.y * 2;
         new_enemy.transform.position = new_enemy_position;
         new_enemy.transform.parent = this.transform;
-        manager.numeber_of_enemies++;
+        manager.enemies.Add(new_enemy);
     }
 }

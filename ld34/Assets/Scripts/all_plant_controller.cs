@@ -85,7 +85,7 @@ public class all_plant_controller : MonoBehaviour {
             number_of_sections++;
             Vector3 new_position = new_plant_section.transform.position;
             new_position.y += new_plant_section.GetComponent<Renderer>().bounds.size.y / 2;
-            platform.transform.position = new_position;
+            platform.GetComponent<platform_controller>().target = new_position;
             new_plant_section.transform.parent = this.gameObject.transform;
             growing.Play();
         }

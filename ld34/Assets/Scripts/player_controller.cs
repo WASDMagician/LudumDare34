@@ -47,7 +47,7 @@ public class player_controller : MonoBehaviour {
 				isAttacking = false;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Space) && (isGrounded == true))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{            
 			animator.SetInteger("Animation_List", 2);
 			isAttacking = true;

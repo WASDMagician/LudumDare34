@@ -95,7 +95,7 @@ public class enemy_controller : MonoBehaviour {
             GameObject new_compost = Instantiate(compost);
             new_compost.transform.position = this.transform.position;
             new_compost.transform.parent = new_compost.transform.parent;
-            manager.numeber_of_enemies--;
+            manager.enemies.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
 
