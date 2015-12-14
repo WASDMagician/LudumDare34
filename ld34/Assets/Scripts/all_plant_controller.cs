@@ -23,18 +23,26 @@ public class all_plant_controller : MonoBehaviour {
         manager = GameObject.FindGameObjectWithTag("level_manager").GetComponent<level_manager>();
         platform = transform.GetChild(0).gameObject;
         growing = GetComponent<AudioSource>();
+        platform.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
 	void Update()
 	{
-
+        
         if(manager.get_water_leves() >= required_water && manager.manure_level >= required_compost)
         {
+            
             add_section();
             last_water_amount = manager.get_water_leves();
             last_manure_amount = manager.manure_level;
             manager.water_level = 0;
             manager.manure_level = 0;
+            manager.randomize_platforms();
+        }
+        if(number_of_sections == 6)
+        {
+            platform.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            platform.GetComponent<BoxCollider2D>().enabled = true;
         }
         Update_Stats();
 	}

@@ -36,8 +36,6 @@ public class level_manager : MonoBehaviour {
 		{
 			add_platform();
 		}
-
-        print(PlayerPrefs.HasKey("highscore"));
 	}
 
 	void Update()
@@ -93,6 +91,25 @@ public class level_manager : MonoBehaviour {
 		platforms.Add(new_platform);
 		
 	}
+
+    public void randomize_platforms()
+    {
+        for (int i = 0; i < platforms.Count; i++)
+        {
+            if (Random.Range(1, 3) == 2)
+            {
+                Vector3 position = platforms[i].transform.position;
+                position.x = Random.Range(min_x + platforms[i].GetComponent<SpriteRenderer>().bounds.size.x / 2, deadzone_min_x);
+                platforms[i].transform.position = position;
+            }
+            else
+            {
+                Vector3 position = platforms[i].transform.position;
+                position.x = Random.Range(deadzone_max_x, max_x - platforms[i].GetComponent<SpriteRenderer>().bounds.size.x / 2);
+                platforms[i].transform.position = position;
+            }
+        }
+    }
 
 	public void update_water_display(int water_amount)
 	{
