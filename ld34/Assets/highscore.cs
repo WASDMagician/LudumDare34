@@ -9,6 +9,7 @@ public class highscore : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        string highscore_string = "";
         //check keys
         if(!PlayerPrefs.HasKey("highscore"))
         {
@@ -21,20 +22,17 @@ public class highscore : MonoBehaviour {
             PlayerPrefs.SetInt("current_score", 0);
         }
 
-        print("Highscore: " + PlayerPrefs.GetInt("highscore").ToString() + " Current score: " + PlayerPrefs.GetInt("current_score"));
+  
 
-        if(PlayerPrefs.GetInt("current_score") > PlayerPrefs.GetInt("highscore"))
+        if(PlayerPrefs.GetInt("current_score") < PlayerPrefs.GetInt("highscore"))
         {
-            print("New highscore");
+            highscore_text.text = "\nNew highscore!";
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("current_score"));
         }
 
         highscore_text.text = "Highscore: " + PlayerPrefs.GetInt("highscore");
         highscore_text.text += "\nCurrent Score: " + PlayerPrefs.GetInt("current_score");
-        if(PlayerPrefs.GetInt("highscore") <= PlayerPrefs.GetInt("current_score"))
-        {
-            highscore_text.text += "\nNew highscore!";
-        }
+        highscore_text.text += highscore_string;
 	}
 	
 	// Update is called once per frame
