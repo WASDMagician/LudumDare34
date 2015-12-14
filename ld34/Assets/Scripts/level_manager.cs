@@ -40,12 +40,12 @@ public class level_manager : MonoBehaviour {
 
 	void Update()
 	{
-		if(number_of_water_bottles <= 1)
+		if(number_of_water_bottles <= 2)
 		{
 			update_water_bottles();
 		}
 
-		if(numeber_of_enemies <= 3)
+		if(numeber_of_enemies <= 2)
 		{
 			update_enemies();
 		}
@@ -74,7 +74,7 @@ public class level_manager : MonoBehaviour {
 	{
 		GameObject new_platform = Instantiate(platform_part);
 		Vector3 new_platform_position = new_platform.transform.position;
-		new_platform.transform.localScale = new Vector3(Random.Range(1.5f, 4), 1, 1);
+		new_platform.transform.localScale = new Vector3(Random.Range(1.5f, 3), 1, 1);
 		if (Random.Range(1, 3) == 2)
 		{
 			new_platform_position.x = Random.Range(min_x + new_platform.GetComponent<SpriteRenderer>().bounds.size.x / 2, deadzone_min_x);

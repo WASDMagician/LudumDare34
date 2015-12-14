@@ -8,6 +8,7 @@ public class enemy_controller : MonoBehaviour {
     int direction = -1;
     int speed = 3;
     bool isAttacking = false;
+    public float yVeloc;
 
     private Animator animator;
     private player_controller m_player;
@@ -24,9 +25,8 @@ public class enemy_controller : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
         Move();
-
+        yVeloc = GetComponent<Rigidbody2D>().velocity.y;
         if (direction == 0)
         {
             animator.SetInteger("Enemy_Anim_List", 0);
@@ -47,6 +47,14 @@ public class enemy_controller : MonoBehaviour {
                 animator.SetInteger("Enemy_Anim_List", 1);
             }
         }
+        if(yVeloc != 0)
+        {
+            animator.SetInteger("Enemy_Anim_List", 2);
+        }else
+        {
+            animator.SetInteger("Enemy_Anim_List", 1);
+        }
+
         if(Vector3.Distance(m_player.transform.position, transform.position) < 1)
         {
             isAttacking = true;
