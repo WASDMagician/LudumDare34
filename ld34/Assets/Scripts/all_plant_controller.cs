@@ -16,10 +16,13 @@ public class all_plant_controller : MonoBehaviour {
 
     public Text required_amounts;
 
+    AudioSource growing;
+
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("level_manager").GetComponent<level_manager>();
         platform = transform.GetChild(0).gameObject;
+        growing = GetComponent<AudioSource>();
     }
 
 	void Update()
@@ -76,6 +79,7 @@ public class all_plant_controller : MonoBehaviour {
             new_position.y += new_plant_section.GetComponent<Renderer>().bounds.size.y / 2;
             platform.transform.position = new_position;
             new_plant_section.transform.parent = this.gameObject.transform;
+            growing.Play();
         }
 	}
 }
