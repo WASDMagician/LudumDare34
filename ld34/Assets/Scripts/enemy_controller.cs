@@ -95,24 +95,23 @@ public class enemy_controller : MonoBehaviour {
         {
             if (Random.Range(0, 3) == 2)
             {
-                if (transform.localScale.x <= 0)
+                if (transform.position.x > m_player.transform.position.x && transform.localScale.x <= 0)
                 {
                     m_player.GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
                 }
-                else
+                if(transform.position.x < m_player.transform.position.x && transform.localScale.x >= 0)
                 {
                     m_player.GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
                 }
             }
             else if (m_player.isAttacking)
             {
-                
-                if (m_player.transform.localScale.x <= 0)
+                if(m_player.transform.position.x > transform.position.x && m_player.transform.localScale.x <= 0)
                 {
                     GetComponent<Rigidbody2D>().AddForce(pushBackMinus, ForceMode2D.Impulse);
                 }
 
-                if (m_player.transform.localScale.x >= 0)
+                if (m_player.transform.position.x < transform.position.x && m_player.transform.localScale.x >= 0)
                 {
                     GetComponent<Rigidbody2D>().AddForce(pushBackPositive, ForceMode2D.Impulse);
                 }

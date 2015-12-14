@@ -23,6 +23,7 @@ public class player_controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+        print("Is grounded: " + isGrounded);
 		var vertical = Input.GetAxis("Vertical");
 		var horizontal = Input.GetAxis("Horizontal");
 		if (horizontal == 0)
@@ -52,11 +53,22 @@ public class player_controller : MonoBehaviour {
 			animator.SetInteger("Animation_List", 2);
 			isAttacking = true;
 		 }
-		if (Input.GetKeyDown(KeyCode.W))
+		if (Input.GetKeyDown(KeyCode.W) && (isGrounded == true))
 		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+			//GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+            GetComponent<Rigidbody2D>().AddForce(new Vector3(0, 15, 0), ForceMode2D.Impulse);
 			isGrounded = false;
 		}
+
+        if(GetComponent<Rigidbody2D>().velocity.y != 0)
+        {
+            isGrounded = false;
+        }
+        else
+        {
+            isGrounded = true;
+        }
+        
 
 		Vector3 player_position = transform.position;
 		player_position.x += (Input.GetAxis("Horizontal") * Time.deltaTime) * moveSpeed;
@@ -83,10 +95,6 @@ public class player_controller : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D col)
 	{
-		if(col.gameObject.CompareTag("platform"))
-		{
-			isGrounded = true;
-		}
 		if (col.gameObject.CompareTag("Enemy"))
 		{
             if (!source.isPlaying)
